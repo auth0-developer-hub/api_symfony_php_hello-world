@@ -1,0 +1,14 @@
+nelmio_cors:
+    defaults:
+        allow_origin: []
+        allow_headers: []
+        allow_methods: []
+        expose_headers: []
+        hosts: []
+    paths:
+        '^/':
+            origin_regex: false
+            forced_allow_origin_value: '%env(CLIENT_ORIGIN_URL)%'
+            allow_methods: ['GET']
+            allow_headers: ['Content-Type', 'Authorization']
+            max_age: 86400

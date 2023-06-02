@@ -1,0 +1,4 @@
+api:
+    resource: ./routes/api.yaml
+    prefix: api/
+    methods: GET

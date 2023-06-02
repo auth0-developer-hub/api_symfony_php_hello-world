@@ -1,0 +1,11 @@
+public_message:
+    path: messages/public
+    controller: App\Controller\Api\MessagesController::showPublicMessage
+
+protected_message:
+    path: messages/protected
+    controller: App\Controller\Api\MessagesController::showProtectedMessage
+
+admin_message:
+    path: messages/admin
+    controller: App\Controller\Api\MessagesController::showAdminMessage

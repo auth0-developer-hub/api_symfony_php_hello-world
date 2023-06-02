@@ -1,0 +1,26 @@
+parameters:
+
+imports:
+    - { resource: 'services/' }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
+            - '../src/EventListener/ResponseListener.php'
+
+    App\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
+
+    App\EventListener\CorrectCorsResponseCodeListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.response }
