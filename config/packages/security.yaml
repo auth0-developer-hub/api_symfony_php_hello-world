@@ -12,3 +12,5 @@ security:
                 - App\Security\ApiAuthenticator
         main:
             security: false
+    access_control:
+        - { path: ^/api/messages/admin, roles: ROLE_MESSAGE_READER }

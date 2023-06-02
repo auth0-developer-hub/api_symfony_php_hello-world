@@ -7,6 +7,10 @@ class ApiUser implements UserInterface
 {
     private array $info;
 
+    const MESSAGE_READER_PERMISSION = 'read:admin-messages';
+
+    const ROLE_MESSAGE_READER = 'ROLE_MESSAGE_READER';
+
     public function __construct($info)
     {
         $this->info = $info;
@@ -19,7 +23,13 @@ class ApiUser implements UserInterface
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        $roles = ['ROLE_USER'];
+
+        if (!empty($this->info['permissions']) && in_array(self::MESSAGE_READER_PERMISSION, $this->info['permissions'])) {
+            $roles[] = self::ROLE_MESSAGE_READER;
+        }
+
+        return $roles;
     }
 
     public function getPassword()
