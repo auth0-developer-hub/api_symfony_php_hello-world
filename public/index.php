@@ -12,7 +12,9 @@ require_once dirname(__DIR__) . '/vendor/autoload_runtime.php';
 return function (array $context) {
     $requiredEnvVars = [
         'PORT',
-        'CLIENT_ORIGIN_URL'
+        'CLIENT_ORIGIN_URL',
+        'AUTH0_AUDIENCE',
+        'AUTH0_DOMAIN',
     ];
 
     foreach ($requiredEnvVars as $var) {

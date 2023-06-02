@@ -1,0 +1,12 @@
+parameters:
+    auth0.audience: ['%env(AUTH0_AUDIENCE)%']
+    auth0.domain: '%env(AUTH0_DOMAIN)%'
+services:
+    Auth0\SDK\Auth0:
+        class: Auth0\SDK\Auth0
+        arguments:
+            $configuration:
+                domain: '%auth0.domain%'
+                audience: '%auth0.audience%'
+                strategy: api
+                tokenCache: '@cache.app'

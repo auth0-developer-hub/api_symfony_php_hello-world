@@ -24,3 +24,7 @@ services:
     App\EventListener\CorrectCorsResponseCodeListener:
         tags:
             - { name: kernel.event_listener, event: kernel.response }
+
+    App\Services\JWTService:
+        arguments:
+            $audience: '%auth0.audience%'

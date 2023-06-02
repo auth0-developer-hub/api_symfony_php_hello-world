@@ -1,0 +1,14 @@
+security:
+    enable_authenticator_manager: true
+    providers:
+        api_user_provider:
+            id: App\Security\ApiUserProvider
+
+    firewalls:
+        protected_endpoints:
+            pattern: api/messages/(protected|admin)
+            stateless: true
+            custom_authenticators:
+                - App\Security\ApiAuthenticator
+        main:
+            security: false
